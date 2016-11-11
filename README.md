@@ -8,7 +8,7 @@
 
 ## src/vector:
 
-1. Usage
+### Usage
  
 * get the GloVe package by running the following command:
 
@@ -37,7 +37,7 @@
 	
 * In Matlab, use the script in vector/eval/evaluate_on_GOOGLE.m to evaluate the word vectors on the GOOGEL testbed.
 
-2. More info
+### More info
 
 Run ./randwalk in the directory vector to get help information about its options. Similarly, for the GloVe package, run ./vocab_count (or ./cooccur ./shuffle) to get help about the options. 
 Frequently used options:
@@ -66,7 +66,7 @@ Frequently used options:
 	
 ## src/directory
 
-1. Usage 
+### Usage 
 
 * make a directory src/directory/tools/
    
