@@ -1,5 +1,7 @@
 # SemanticVector
 
+This is the code for the paper ["A Latent Variable Model Approach to PMI-based Word Embeddings"](https://arxiv.org/abs/1502.03520) and ["Linear Algebraic Structure of Word Senses, with Applications to Polysemy"](https://arxiv.org/abs/1601.03764).
+
 ## Directories:
 1. data: contains some example test set
 2. examples: contains demo.sh that shows how to use the code
