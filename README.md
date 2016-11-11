@@ -37,8 +37,8 @@
 	
 * In Matlab, use the script in vector/eval/evaluate_on_GOOGLE.m to evaluate the word vectors on the GOOGEL testbed.
 
-
 2. More info
+
 Run ./randwalk in the directory vector to get help information about its options. Similarly, for the GloVe package, run ./vocab_count (or ./cooccur ./shuffle) to get help about the options. 
 Frequently used options:
 
@@ -82,9 +82,14 @@ Frequently used options:
 	
     The constructed dictionary will be saved in mat format in dictionary_result. The mat file contains the following variables:
 	
-    ** Dictionary: each column is an atom.
-    ** words: cell array, the vocabulary.
-    ** WordVector: each column is a word vector; the i0th column is the vector for words{i}.
-    ** representation: the representation of the word vectors, that is, WordVector is approximately Dictionary * representation.
-    ** corr_words: cell matrix. corr_words{:, i} are the 100 nearest words to the i-th atom.
-    ** corr: cell matrix. corr{j,i} is the corresonding inner product between j-th nearest word and the i-th atom.
+    * Dictionary: each column is an atom.
+	
+    * words: cell array, the vocabulary.
+	
+    * WordVector: each column is a word vector; the i0th column is the vector for words{i}.
+	
+    * representation: the representation of the word vectors, that is, WordVector is approximately Dictionary times representation.
+	
+    * corr_words: cell matrix. corr_words{:, i} are the 100 nearest words to the i-th atom.
+	
+    * corr: cell matrix. corr{j,i} is the corresonding inner product between j-th nearest word and the i-th atom.
