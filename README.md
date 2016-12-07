@@ -2,31 +2,45 @@
 
 This is the code for the paper ["A Latent Variable Model Approach to PMI-based Word Embeddings"](https://arxiv.org/abs/1502.03520) and the paper ["Linear Algebraic Structure of Word Senses, with Applications to Polysemy"](https://arxiv.org/abs/1601.03764).
 
+## Get Started
+After cloning the code, run
+
+```
+	./setup.sh
+	cd examples
+	./demo_vector.sh
+	./demo_dictionary.sh
+	./demo_window.sh
+```
+
+The script setup.sh will download data and external tools for the code. The three demo scripts are for three parts of the code. See the following for details.
+
 ## Directories:
 1. data: contains some example test set
 2. examples: contains demo.sh that shows how to use the code
-3. src: contains the code. It has sub-directories: vector and dictionary
+3. src: contains the code. It has sub-directories: vector, dictionary, topic. These are explained below.
 
 
 ## src/vector:
 
 ### Usage
  
-* get the GloVe package by running the following command:
+* Make sure that the GloVe package is in external_tools (if setup.sh is run, it should have downloaded it). If not, run the following command:
 
 ```
     mkdir external_tools
 	cd external_tools
     git clone https://github.com/stanfordnlp/GloVe 
+	make
 ```
 
-* put the raw corpus in the data directory, preprocess it. (We used wikifil.pl provided by Matt Mahoney.) Example:
+* put the raw corpus in the data directory, preprocess it. We used wikifil.pl provided by Matt Mahoney, at the end of [this page](http://mattmahoney.net/dc/textdata). Example:
 
 ```
     perl wikifil.pl enwiki_raw_corpus > enwiki
 ```
 
-An example preprocessed small corpus text8 is provided for the demo.
+An example preprocessed small corpus text8 is downloaded for the demo in setup.sh.
 	
 * change the variable CORPUS in the script example/demo_vector.sh to your preprocessed corpus
 
@@ -78,7 +92,9 @@ Frequently used options:
 
 ### Usage 
 
-* make a directory src/directory/tools/
+* Make sure the sparse coding package smallbox-2.1 is downloaded and installed (If setup.sh is run, this should have been installed). 
+ 
+  If not, make a directory src/directory/tools/
    
   download smallbox-2.1.zip from https://code.soundsoftware.ac.uk/projects/smallbox/files
   
@@ -115,6 +131,9 @@ The constructed dictionary will be saved in mat format in dictionary_result. The
 ## src/topic
 
 ### Usage 
+
+* Make sure that the needed data is downloaded (see setup.sh)
+
 * cd into the example directory and run
 
 ```
