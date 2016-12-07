@@ -26,7 +26,7 @@ This is the code for the paper ["A Latent Variable Model Approach to PMI-based W
     perl wikifil.pl enwiki_raw_corpus > enwiki
 ```
 
-    An example preprocessed small corpus text8 is provided for the demo.
+An example preprocessed small corpus text8 is provided for the demo.
 	
 * change the variable CORPUS in the script example/demo_vector.sh to your preprocessed corpus
 
@@ -36,8 +36,8 @@ This is the code for the paper ["A Latent Variable Model Approach to PMI-based W
     ./demo_vector.sh
 ```	
 
-    The script will make the programs, construct the vocabulary, compute and shuffle the co-occurrence, and finally construct the word vectors using the algorithm in [our paper](http://arxiv.org/abs/1502.03520).  The codes for computing the vocabulary and the co-occurrence are borrowed from [GloVe](http://nlp.stanford.edu/projects/glove/).
-    The constructed vocabulary is saved in vector_result/text8_vocab.txt, and the constructed vectors are saved in vector_result/text8_rw_vectors.bin.
+The script will make the programs, construct the vocabulary, compute and shuffle the co-occurrence, and finally construct the word vectors using the algorithm in [our paper](http://arxiv.org/abs/1502.03520).  The codes for computing the vocabulary and the co-occurrence are borrowed from [GloVe](http://nlp.stanford.edu/projects/glove/).
+The constructed vocabulary is saved in vector_result/text8_vocab.txt, and the constructed vectors are saved in vector_result/text8_rw_vectors.bin.
 	
 * In Matlab, use the script in vector/util/read_vocab_vectors.m to load the vocabulary and word vectors (binary format) from the files: 
 
@@ -90,25 +90,25 @@ Frequently used options:
     ./demo_dictionary.sh
 ```	
 
-	The script runs learn_rw_dictionary.m in Matlab.
+The script runs learn_rw_dictionary.m in Matlab.
 
-    Note: first need to construct the word vectors; see above
-	
-    Read and change the parameters in line 11 to 19 in the script to satisfy you needs. (the current parameters are for the Wikipedia corpus consisting of about 3G tokens) 
-	
-    The constructed dictionary will be saved in mat format in dictionary_result. The mat file contains the following variables:
-	
-    * Dictionary: each column is an atom.
-	
-    * words: cell array, the vocabulary.
-	
-    * WordVector: each column is a word vector; the i0th column is the vector for words{i}.
-	
-    * representation: the representation of the word vectors, that is, WordVector is approximately Dictionary times representation.
-	
-    * corr_words: cell matrix. corr_words{:, i} are the 100 nearest words to the i-th atom.
-	
-    * corr: cell matrix. corr{j,i} is the corresonding inner product between j-th nearest word and the i-th atom.
+Note: first need to construct the word vectors; see above
+
+Read and change the parameters in line 11 to 19 in the script to satisfy you needs. (the current parameters are for the Wikipedia corpus consisting of about 3G tokens) 
+
+The constructed dictionary will be saved in mat format in dictionary_result. The mat file contains the following variables:
+
+* Dictionary: each column is an atom.
+
+* words: cell array, the vocabulary.
+
+* WordVector: each column is a word vector; the i0th column is the vector for words{i}.
+
+* representation: the representation of the word vectors, that is, WordVector is approximately Dictionary times representation.
+
+* corr_words: cell matrix. corr_words{:, i} are the 100 nearest words to the i-th atom.
+
+* corr: cell matrix. corr{j,i} is the corresonding inner product between j-th nearest word and the i-th atom.
 	
 	
 
@@ -121,6 +121,6 @@ Frequently used options:
     ./demo_window.sh
 ```	
 
-	This script downloads the needed data (about 500MB) and runs learn_window_dictionary.m. It computes window vectors (each window vector is the weighted average of the word vectors in a paragraph), and computes a dictionary on these window vectors. The atoms in this dictionary can be viewed as topic vectors.
-	
-	See the README file in src/topic/ for more information.
+This script downloads the needed data (about 500MB) and runs learn_window_dictionary.m. It computes window vectors (each window vector is the weighted average of the word vectors in a paragraph), and computes a dictionary on these window vectors. The atoms in this dictionary can be viewed as topic vectors.
+
+See the README file in src/topic/ for more information.
