@@ -15,10 +15,12 @@ clear dict_learn_dir
 topic_dir = fullfile(root_dir, 'topic');
 topic_math_dir = fullfile(root_dir, 'topic', 'math'); 
 topic_display_dir = fullfile(root_dir, 'topic', 'display'); 
+topic_win_atom_dir = fullfile(root_dir, 'topic', 'win_atom'); 
 addpath(topic_dir);
 addpath(topic_math_dir);
 addpath(topic_display_dir);
-clear topic_dir topic_math_dir topic_display_dir
+addpath(topic_win_atom_dir);
+clear topic_dir topic_math_dir topic_display_dir topic_win_atom_dir
 
 clear root_dir
 

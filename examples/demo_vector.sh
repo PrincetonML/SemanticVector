@@ -51,5 +51,3 @@ if [[ $? -eq 0 ]]
   fi
 fi
 
-# learn dictionary
-matlab -nodisplay -nodesktop -nojvm -nosplash < learn_rw_dictionary.m 1>&2 

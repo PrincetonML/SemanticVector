@@ -13,30 +13,30 @@ This is the code for the paper ["A Latent Variable Model Approach to PMI-based W
 ### Usage
  
 * get the GloVe package by running the following command:
-
+```
     mkdir external_tools
 	cd external_tools
     git clone https://github.com/stanfordnlp/GloVe 
-	
+```
 * put the raw corpus in the data directory, preprocess it. (We used wikifil.pl provided by Matt Mahoney.) Example:
-	
+```
     perl wikifil.pl enwiki_raw_corpus > enwiki
-	
+```
     An example preprocessed small corpus text8 is provided for the demo.
 	
-* change the variable CORPUS in the script example/demo.sh to your preprocessed corpus
+* change the variable CORPUS in the script example/demo_vector.sh to your preprocessed corpus
 
-* cd into the example directory vector and run
-
-    ./demo.sh
-	
-    The script will make the programs, construct the vocabulary, compute and shuffle the co-occurrence, and finally construct the word vectors using the algorithm in our paper (http://arxiv.org/abs/1502.03520).  The codes for computing the vocabulary and the co-occurrence are borrowed from GloVe (http://nlp.stanford.edu/projects/glove/).
+* cd into the example directory and run
+```
+    ./demo_vector.sh
+```	
+    The script will make the programs, construct the vocabulary, compute and shuffle the co-occurrence, and finally construct the word vectors using the algorithm in [our paper](http://arxiv.org/abs/1502.03520).  The codes for computing the vocabulary and the co-occurrence are borrowed from [GloVe](http://nlp.stanford.edu/projects/glove/).
     The constructed vocabulary is saved in vector_result/text8_vocab.txt, and the constructed vectors are saved in vector_result/text8_rw_vectors.bin.
 	
 * In Matlab, use the script in vector/util/read_vocab_vectors.m to load the vocabulary and word vectors (binary format) from the files: 
-
+```
     [vocab, vectors] = read_vocab_vectors(vocab_file, vector_file, vector_size);
-	
+```
 * In Matlab, use the script in vector/eval/evaluate_on_GOOGLE.m to evaluate the word vectors on the GOOGEL testbed.
 
 ### More info
@@ -76,7 +76,11 @@ Frequently used options:
   
   unzip it in dictionary/tools/ and install it following the instructions in its README file.
 
-* In Matlab, run learn_rw_dictionary.m.
+* cd into the example directory and run
+```
+    ./demo_dictionary.sh
+```	
+	The script runs learn_rw_dictionary.m in Matlab.
 
     Note: first need to construct the word vectors; see above
 	
@@ -95,3 +99,16 @@ Frequently used options:
     * corr_words: cell matrix. corr_words{:, i} are the 100 nearest words to the i-th atom.
 	
     * corr: cell matrix. corr{j,i} is the corresonding inner product between j-th nearest word and the i-th atom.
+	
+	
+
+## src/topic
+
+### Usage 
+* cd into the example directory and run
+```
+    ./demo_window.sh
+```	
+	This script downloads the needed data (about 500MB) and runs learn_window_dictionary.m. It computes window vectors (each window vector is the weighted average of the word vectors in a paragraph), and computes a dictionary on these window vectors. The atoms in this dictionary can be viewed as topic vectors.
+	
+	See the README file in src/topic/ for more information.
