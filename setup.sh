@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# get the GloVe package by running the following command:
+# get the GloVe package by running the following command
 mkdir external_tools
 cd external_tools
 git clone https://github.com/stanfordnlp/GloVe 
