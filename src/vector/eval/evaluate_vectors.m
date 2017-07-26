@@ -87,7 +87,7 @@ ind1 = ind1(ind);
 ind2 = ind2(ind);
 ind3 = ind3(ind);
 ind4 = ind4(ind);
-count_tot = count_tot + length(questions_array(j).ind1);
+count_tot = count_tot + length(ind1);
 
 if isfield(questions_array(j),'filename')
     disp([questions_array(j).filename ':']);
@@ -98,11 +98,13 @@ end
 mxtopn = zeros(topn, length(ind1));
 num_iter = ceil(length(ind1)/split_size);
 for jj=1:num_iter
-    range = (jj-1)*split_size+1:min(jj*split_size,length(ind1));
+    bid = (jj-1)*split_size+1;
+    eid = min(jj*split_size,length(ind1));
+    range = bid:eid;
     if (opts.eval_cri==0) % square norm of (a-b)-(c-d)
         similarity = full(vectors' * (vectors(:,ind2(range)) - vectors(:,ind1(range)) +  vectors(:,ind3(range)))) - normW*ones(1,length(range))*0.5;
     elseif (opts.eval_cri==1) % 3COS-ADD
-        %cosine similarity if input W has been normalized
+        %cosine similarity if input W has been normalized        
         similarity = full(vectors' * (vectors(:,ind2(range)) - vectors(:,ind1(range)) +  vectors(:,ind3(range)) ));
     elseif (opts.eval_cri==2) % 3COS-MUL
         tmp1=(vectors' * vectors(:,ind1(range))); tmp1 = (tmp1+1)/2;

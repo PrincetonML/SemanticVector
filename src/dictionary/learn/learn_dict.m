@@ -10,11 +10,11 @@ function [Dictionary, representation, info] = learn_dict(words, WordVector, opts
 %   25)
 %   
 %   opts.threshold_merge: if the inner product between two atoms is above this then 
-%      count them as one atom
+%      count them as one atom (default 0.8)
 %   opts.threshold_drop: if the inner product between two atoms is above this then
-%      count them as neighbors
-%   opts.occur: keep an atom if it has more than this number of neighbors
-%   opts.ncommon: remove the top ncommon atoms that appear most often
+%      count them as neighbors (default 0.2)
+%   opts.occur: keep an atom if it has more than this number of neighbors (default 3)
+%   opts.ncommon: remove the top ncommon atoms that appear most often (default 25)
 %   opts.output_info: if > 0, compute the corr and corr_words (default: not set)
 
 % parse options
@@ -45,7 +45,7 @@ end
 if isfield(opts, 'threshold_merge')
     threshold_merge = opts.threshold_merge;
 else
-    threshold_merge = 0.85; % default value
+    threshold_merge = 0.8; % default value
 end
 if isfield(opts, 'threshold_drop')
     threshold_drop = opts.threshold_drop;
