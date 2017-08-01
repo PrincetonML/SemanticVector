@@ -88,13 +88,13 @@ Frequently used options:
     
 	
 	
-## src/directory
+## src/dictionary
 
 ### Usage 
 
 * Make sure the sparse coding package smallbox-2.1 is downloaded and installed (If setup.sh is run, this should have been installed). 
  
-  If not, make a directory src/directory/tools/
+  If not, make a directory src/dictionary/tools/
    
   download smallbox-2.1.zip from https://code.soundsoftware.ac.uk/projects/smallbox/files
   
