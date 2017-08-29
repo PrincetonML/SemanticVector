@@ -6,11 +6,11 @@ This is the code for the paper ["A Latent Variable Model Approach to PMI-based W
 After cloning the code, run
 
 ```
-	./setup.sh
-	cd examples
-	./demo_vector.sh
-	./demo_dictionary.sh
-	./demo_window.sh
+./setup.sh
+cd examples
+./demo_vector.sh
+./demo_dictionary.sh
+./demo_window.sh
 ```
 
 The script setup.sh will download data and external tools for the code. The three demo scripts are for three parts of the code. See the following for details.
@@ -28,16 +28,16 @@ The script setup.sh will download data and external tools for the code. The thre
 * Make sure that the GloVe package is in external_tools (if setup.sh is run, it should have downloaded it). If not, run the following command:
 
 ```
-    mkdir external_tools
-	cd external_tools
-    git clone https://github.com/stanfordnlp/GloVe 
-	make
+mkdir external_tools
+cd external_tools
+git clone https://github.com/stanfordnlp/GloVe 
+make
 ```
 
 * put the raw corpus in the data directory, preprocess it. We used wikifil.pl provided by Matt Mahoney, at the end of [this page](http://mattmahoney.net/dc/textdata). Example:
 
 ```
-    perl wikifil.pl enwiki_raw_corpus > enwiki
+perl wikifil.pl enwiki_raw_corpus > enwiki
 ```
 
 An example preprocessed small corpus text8 is downloaded for the demo in setup.sh.
@@ -47,7 +47,7 @@ An example preprocessed small corpus text8 is downloaded for the demo in setup.s
 * cd into the example directory and run
 
 ```
-    ./demo_vector.sh
+./demo_vector.sh
 ```	
 
 The script will make the programs, construct the vocabulary, compute and shuffle the co-occurrence, and finally construct the word vectors using the algorithm in [our paper](http://arxiv.org/abs/1502.03520).  The codes for computing the vocabulary and the co-occurrence are borrowed from [GloVe](http://nlp.stanford.edu/projects/glove/).
@@ -56,7 +56,7 @@ The constructed vocabulary is saved in vector_result/text8_vocab.txt, and the co
 * In Matlab, use the script in vector/util/read_vocab_vectors.m to load the vocabulary and word vectors (binary format) from the files: 
 
 ```
-    [vocab, vectors] = read_vocab_vectors(vocab_file, vector_file, vector_size);
+[vocab, vectors] = read_vocab_vectors(vocab_file, vector_file, vector_size);
 ```
 
 * In Matlab, use the script in vector/eval/evaluate_on_GOOGLE.m to evaluate the word vectors on the GOOGEL testbed.
@@ -103,7 +103,7 @@ Frequently used options:
 * cd into the example directory and run
 
 ```
-    ./demo_dictionary.sh
+./demo_dictionary.sh
 ```	
 
 The script runs learn_rw_dictionary.m in Matlab.
@@ -137,7 +137,7 @@ The constructed dictionary will be saved in mat format in dictionary_result. The
 * cd into the example directory and run
 
 ```
-    ./demo_window.sh
+./demo_window.sh
 ```	
 
 This script downloads the needed data (about 500MB) and runs learn_window_dictionary.m. It computes window vectors (each window vector is the weighted average of the word vectors in a paragraph), and computes a dictionary on these window vectors. The atoms in this dictionary can be viewed as topic vectors.
